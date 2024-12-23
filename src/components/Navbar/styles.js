@@ -7,6 +7,8 @@ export const Nav = styled.nav`
     width: 100%;
     box-sizing: border-box;
     padding: 1rem;
+    position: fixed;
+    z-index: 1000;
 `;
 
 export const Image = styled.img`

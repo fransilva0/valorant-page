@@ -1,5 +1,6 @@
 import React,{ useState, useEffect }  from "react";
 import { viewAgents } from "../../api/agents";
+import { AgentsSection, AgentCard, Image, TitleAgent } from "./styles"
 
 export function Agents () {
     const [listAgents, setListAgents] = useState([])
@@ -7,7 +8,9 @@ export function Agents () {
     const viewAgentsGame = () => {
         viewAgents()
         .then((response) => {
-            setListAgents(response.data.data)
+            const playableAgents = response.data.data.filter(agent => agent.isPlayableCharacter);
+            setListAgents(playableAgents)
+            console.log(playableAgents)
         })
     }
 
@@ -18,16 +21,16 @@ export function Agents () {
     }, []);
 
     return (
-        <div>
-                {listAgents && listAgents.map(agent => (
+        <AgentsSection>
+            {listAgents && listAgents.map(agent => (
 
-                <div key={agent.uuid}>
+                <AgentCard key={agent.uuid}>
 
-                    <div>
-                        <img src={agent.displayIcon} /> 
-                        <h1>{agent.displayName}</h1>
-                    </div>
-                </div>
-    ))}
-    </div>
+                    <Image src={agent.bustPortrait} /> 
+        
+                    <TitleAgent>{agent.displayName}</TitleAgent>
+                
+                </AgentCard>
+            ))}
+        </AgentsSection>
 )}
