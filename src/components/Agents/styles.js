@@ -19,6 +19,7 @@ export const AgentsSection = styled.section`
 
 export const AgentCard = styled.li`
     background: #111823;
+    color: #000;
     margin: 2rem;
     cursor: pointer;
     transition: transform 0.3s ease;

@@ -15,6 +15,14 @@ export const FeaturedBanner = styled.div`
 
 `;
 
+export const FeaturedAgentBanner = styled.div`
+    background: #111823;
+    height: 90vh;
+    box-sizing: border-box;
+    padding: 1rem;
+    position: relative;
+`;
+
 export const DivTexts = styled.div`
     position: absolute;
     top: 50%; 
@@ -35,6 +43,13 @@ export const TextBanner = styled.p`
     }
 `;
 
+export const TextAgentBanner = styled.p`
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-family: "Montserrat", serif;
+    color: #fff;
+`;
+
 export const TitleBanner = styled.h1`
     font-size: 4rem;
     margin-bottom: 2rem;
@@ -43,5 +58,16 @@ export const TitleBanner = styled.h1`
 
     @media only screen and (min-width: 320px) and (max-width: 480px) {
         font-size: 3rem;
+    }
+`;
+
+export const Image = styled.img`
+    width: 20rem;
+    border-radius: 10rem;
+    margin-bottom: 2rem;
+    background: #fff;
+
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        width: 15rem;
     }
 `;

@@ -8,8 +8,18 @@ export function Weapons () {
     const viewWeaponsGame = () => {
         viewWeapons()
         .then((response) => {
+
+            if (response.status === 200) {
+
+                setListWeapons(response.data.data)
             
-            setListWeapons(response.data.data)
+            }
+            
+        })
+        .catch((error) => { 
+
+            console.error('Ocorreu um erro ao buscar os dados!', error);
+            // desenvolver a mudança de estado da seção para erro 
         })
     }
 

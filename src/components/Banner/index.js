@@ -1,4 +1,4 @@
-import { FeaturedBanner, DivTexts, TextBanner, TitleBanner } from './styles'
+import { FeaturedBanner, DivTexts, TextBanner, TitleBanner, FeaturedAgentBanner, Image, TextAgentBanner } from './styles'
 import { RedButton } from '../Button'
 
 export function Banner(props) {
@@ -10,5 +10,18 @@ export function Banner(props) {
                 <RedButton url={props.url}>{props.text}</RedButton>
             </DivTexts>
         </FeaturedBanner>
+    )
+}
+
+export function AgentBanner(props) {
+    return (
+        <FeaturedAgentBanner>
+            <DivTexts>
+                <Image src={props.agentImage} />
+                <TitleBanner>{props.agentName}</TitleBanner>
+                <TextAgentBanner>{props.agentBio}</TextAgentBanner>
+            </DivTexts>
+            
+        </FeaturedAgentBanner>
     )
 }
