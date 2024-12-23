@@ -1,5 +1,6 @@
 import { Banner } from "../../components/Banner"
-import { Agents } from "../../components/Agents";
+import { Agents } from "../../components/Agents"
+import { Weapons } from "../../components/Weapons"
 import { TitleSection } from "./styles"
 
 export default function Home() {
@@ -9,6 +10,8 @@ export default function Home() {
             <Banner imageUrl={imageUrl} textBanner='Um jogo de tiro tático 5x5 com personagens originais' titleBanner='Valorant' url='https://playvalorant.com/pt-br/' text='Jogue Agora' />
             <TitleSection>Agentes</TitleSection>
             <Agents />
+            <TitleSection>Armamento</TitleSection>
+            <Weapons />
         </>
     )
 }

@@ -10,7 +10,6 @@ export function Agents () {
         .then((response) => {
             const playableAgents = response.data.data.filter(agent => agent.isPlayableCharacter);
             setListAgents(playableAgents)
-            console.log(playableAgents)
         })
     }
 
