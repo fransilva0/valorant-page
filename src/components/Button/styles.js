@@ -6,7 +6,8 @@ export const GradientButton = styled.a`
     background: linear-gradient(to right, #ff0000, #ff7f7f);
     font-weight: 800;
     font-size: 0.8rem;
-    color: #000;
+    font-family: "Montserrat", serif;
+    color: #fff;
     border-radius: 1rem;
 
 `;
@@ -15,6 +16,7 @@ export const RedButtonStyled = styled.a`
     padding: 1rem 3rem 1rem 3rem;
     text-transform: uppercase;
     background: #FF4C4C;
+    font-family: "Montserrat", serif;
     font-size: 1rem;
     font-weight: 600;
     color: #fff;

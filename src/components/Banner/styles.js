@@ -25,7 +25,9 @@ export const DivTexts = styled.div`
 `;
 
 export const TextBanner = styled.p`
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: "Montserrat", serif;
     color: #fff;
 
     @media only screen and (min-width: 320px) and (max-width: 480px) {
@@ -36,6 +38,10 @@ export const TextBanner = styled.p`
 export const TitleBanner = styled.h1`
     font-size: 4rem;
     margin-bottom: 2rem;
-    font-weight: 800;
     color: #fff;
+    font-family: 'VALORANT', sans-serif;
+
+    @media only screen and (min-width: 320px) and (max-width: 480px) {
+        font-size: 3rem;
+    }
 `;
