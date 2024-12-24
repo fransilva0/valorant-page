@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom";
 import { specificAgent } from "../../api/agents";
 import { AgentBanner } from "../../components/Banner";
 import Error from "../Error";
-import { AbilityCard, AbilityList, TitleAbility, Image, ResumeAbility } from "./styles"
-
+import { AbilityCard, AbilityList, TitleAbility, Image, ResumeAbility} from "./styles"
+import { Loading } from "../../components/Loading"
 
 
 export default function Agent() {
     const { id } = useParams();
     const [agent, setAgent] = useState([])
+    const [loading, setLoading] = useState(true);
     
         useEffect(() => {
 
@@ -19,14 +20,19 @@ export default function Agent() {
 
                     setAgent(response.data.data)
                 }
+
+                setLoading(false)
             })
             .catch((error) => { 
 
                 console.error('Ocorreu um erro ao buscar os dados!', error);
+                setLoading(false)
                 
             })
             
         }, [id]);
+
+        if (loading) { return <Loading /> }
 
         if (!agent || !agent.displayName || !agent.abilities) { 
             return <Error message="Agente não localizado, será que alguém tirou férias?" />;

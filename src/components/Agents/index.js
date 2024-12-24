@@ -2,9 +2,11 @@ import React,{ useState, useEffect }  from "react";
 import { Link } from "react-router-dom";
 import { viewAgents } from "../../api/agents";
 import { AgentsSection, AgentCard, Image, TitleAgent, ErrorSection, MessageAgentError } from "./styles"
+import { Loading } from "../Loading"
 
 export function Agents () {
     const [listAgents, setListAgents] = useState([])
+    const [loading, setLoading] = useState(true);
 
     const viewAgentsGame = () => {
         viewAgents()
@@ -15,10 +17,15 @@ export function Agents () {
                 setListAgents(playableAgents)
            
             }
+
+            setLoading(false)
+
         })
         .catch((error) => { 
 
             console.error('Ocorreu um erro ao buscar os dados!', error);
+            setLoading(false)
+
 
         })
     }
@@ -28,6 +35,8 @@ export function Agents () {
         viewAgentsGame();
         
     }, []);
+
+    if (loading) { return <Loading /> }
 
     return (
         <>

@@ -1,9 +1,11 @@
 import React,{ useState, useEffect }  from "react";
 import { viewWeapons } from "../../api/weapons";
 import { WeaponsSection, WeaponCard, Image, TitleWeapon, ErrorSection, MessageAgentError } from "./styles"
+import { Loading } from "../Loading"
 
 export function Weapons () {
     const [listWeapons, setListWeapons] = useState([])
+    const [loading, setLoading] = useState(true);
 
     const viewWeaponsGame = () => {
         viewWeapons()
@@ -14,11 +16,14 @@ export function Weapons () {
                 setListWeapons(response.data.data)
             
             }
+
+            setLoading(false)
             
         })
         .catch((error) => { 
 
             console.error('Ocorreu um erro ao buscar os dados!', error);
+            setLoading(false)
 
         })
     }
@@ -28,6 +33,8 @@ export function Weapons () {
         viewWeaponsGame();
         
     }, []);
+
+    if (loading) { return <Loading /> }
 
     return (
         <>
