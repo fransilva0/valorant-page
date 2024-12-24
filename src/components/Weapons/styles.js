@@ -22,7 +22,6 @@ export const WeaponCard = styled.li`
     background: #111823;
     text-align: center;
     margin: 2rem;
-    cursor: pointer;
     transition: transform 0.3s ease;
 
     &:hover {
