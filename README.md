@@ -54,10 +54,9 @@
 
 ## :sparkles: Funcionalidades ##
 
-- [X] Apresentação de todos os agentes do jogo
-- [X] Apresentação de habilidades de cada agente
-- [X] Apresentação de lista de armas do jogo
-- [ ] Apresentação de skins de armas do jogo
+- Apresentação de todos os agentes do jogo
+- Apresentação de habilidades de cada agente
+- Apresentação de lista de armas do jogo
 
 ## :rocket: Tecnologias ##
 
