@@ -1,7 +1,7 @@
 import React,{ useState, useEffect }  from "react";
 import { Link } from "react-router-dom";
 import { viewAgents } from "../../api/agents";
-import { AgentsSection, AgentCard, Image, TitleAgent } from "./styles"
+import { AgentsSection, AgentCard, Image, TitleAgent, ErrorSection, MessageAgentError } from "./styles"
 
 export function Agents () {
     const [listAgents, setListAgents] = useState([])
@@ -19,7 +19,7 @@ export function Agents () {
         .catch((error) => { 
 
             console.error('Ocorreu um erro ao buscar os dados!', error);
-            // desenvolver a mudança de estado da seção para erro 
+
         })
     }
 
@@ -30,7 +30,9 @@ export function Agents () {
     }, []);
 
     return (
-        <AgentsSection>
+        <>
+        {listAgents.length > 0 ? (
+            <AgentsSection>
             {listAgents && listAgents.map(agent => (
                 <Link to={`/AgentPage/${agent.uuid}`}>
                 <AgentCard key={agent.uuid}>
@@ -43,4 +45,11 @@ export function Agents () {
                 </Link>
             ))}
         </AgentsSection>
+        ) : (
+            <ErrorSection>
+                <MessageAgentError>Ops... Problemas de acesso ao servidor, tente novamente mais tarde!</MessageAgentError>
+                <Image src="https://media.valorant-api.com/sprays/677dc003-4dbf-66a8-9116-4f8d7a9fb8d5/animation.gif" />
+            </ErrorSection>
+        )}
+        </>
 )}

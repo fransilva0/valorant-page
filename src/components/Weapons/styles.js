@@ -44,3 +44,16 @@ export const TitleWeapon = styled.p`
     background: #fff;
 
 `;
+
+export const ErrorSection = styled.section`
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+`;
+
+export const MessageAgentError = styled.p`
+    font-size: 1.5rem;
+    font-family: 'Montsserat', sans-serif;
+    padding: 0.5rem;
+`;

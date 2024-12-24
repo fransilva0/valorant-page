@@ -1,6 +1,6 @@
 import React,{ useState, useEffect }  from "react";
 import { viewWeapons } from "../../api/weapons";
-import { WeaponsSection, WeaponCard, Image, TitleWeapon } from "./styles"
+import { WeaponsSection, WeaponCard, Image, TitleWeapon, ErrorSection, MessageAgentError } from "./styles"
 
 export function Weapons () {
     const [listWeapons, setListWeapons] = useState([])
@@ -19,7 +19,7 @@ export function Weapons () {
         .catch((error) => { 
 
             console.error('Ocorreu um erro ao buscar os dados!', error);
-            // desenvolver a mudança de estado da seção para erro 
+
         })
     }
 
@@ -30,7 +30,9 @@ export function Weapons () {
     }, []);
 
     return (
-        <WeaponsSection>
+        <>
+        {listWeapons.length > 0 ? (
+            <WeaponsSection>
             {listWeapons && listWeapons.map(weapon => (
 
                 <WeaponCard key={weapon.uuid}>
@@ -42,4 +44,11 @@ export function Weapons () {
                 </WeaponCard>
             ))}
         </WeaponsSection>
+        ) : (
+            <ErrorSection>
+                <MessageAgentError>Ops... Problemas de acesso ao servidor, tente novamente mais tarde!</MessageAgentError>
+                <Image src="https://media.valorant-api.com/sprays/677dc003-4dbf-66a8-9116-4f8d7a9fb8d5/animation.gif" />
+            </ErrorSection>
+        )}
+        </>
 )}
